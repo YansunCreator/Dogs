@@ -14,6 +14,7 @@ def get_random_dog_image():
         mb.showerror("Ошибка", f"Ошибка при запросе к API: {e}")
         return None
 
+
 def show_image():
     image_url = get_random_dog_image()
     if image_url:
