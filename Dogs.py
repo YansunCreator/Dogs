@@ -28,10 +28,12 @@ def show_image():
             img_size = (int(width_spinbox.get()), int(height_spinbox.get()))
             img.thumbnail((img_size))
             img = ImageTk.PhotoImage(img)
-            new_window = Toplevel(window)
-            new_window.title("Случайное изображение пёсика")
-            lb = ttk.Label(new_window, image=img)
-            lb.pack()
+            # new_window = Toplevel(window)
+            # new_window.title("Случайное изображение пёсика")
+            tab = ttk.Frame(notebook)
+            notebook.add(tab, text=f"Изображение № {notebook.index('end') + 1}")
+            lb = ttk.Label(tab, image=img)
+            lb.pack(padx=10, pady=10)
             lb.image = img
 
         except requests.RequestException as e:
@@ -65,5 +67,11 @@ height_label = ttk.Label(text="Высота:")
 height_label.pack(side='left', padx=(10, 0))
 height_spinbox = ttk.Spinbox(from_=200, to=500, increment=50, width=5)
 height_spinbox.pack(side='left', padx=(0, 10))
+
+top_level_window = Toplevel(window)
+top_level_window.title("Изображения пёсиков")
+
+notebook = ttk.Notebook(top_level_window)
+notebook.pack(expand=True, fill='both', padx=10, pady=10)
 
 window.mainloop()
