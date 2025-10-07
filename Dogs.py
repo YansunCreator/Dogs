@@ -1,4 +1,5 @@
 import requests
+from tkinter import messagebox as mb
 from tkinter import *
 from PIL import Image, ImageTk
 from io import BytesIO
@@ -10,7 +11,7 @@ def get_random_dog_image():
         data = response.json()
         return data['message']
     except Exception as e:
-        messagebox.showerror("Ошибка", f"Ошибка при запросе к API: {e}")
+        mb.showerror("Ошибка", f"Ошибка при запросе к API: {e}")
         return None
 
 def show_image():
@@ -27,7 +28,7 @@ def show_image():
             label.image = img
 
         except requests.RequestException as e:
-            messagebox.showerror("Ошибка", f"Не удалось загрузить изображение: {e}")
+            mb.showerror("Ошибка", f"Не удалось загрузить изображение: {e}")
 
 window = Tk()
 window.title("Картинки с собачками")
