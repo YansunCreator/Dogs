@@ -53,7 +53,7 @@ def clear_tabs():
     messagebox.showinfo("Очистка", "Все вкладки успешно удалены.")
 
 window = Tk()
-window.title("Случайное изображение")
+window.title("Поисковик изображений")
 
 status_label = ttk.Label(window, text="")
 status_label.pack(padx=10, pady=5)
@@ -86,9 +86,14 @@ height_spinbox.pack(side='left', padx=(0, 10))
 height_spinbox.set(300)
 
 top_level_window = Toplevel(window)
-top_level_window.title("Изображения пёсиков")
+top_level_window.title("Галерея собак")
 
 notebook = ttk.Notebook(top_level_window)
 notebook.pack(expand=True, fill='both', padx=10, pady=10)
+
+window.update_idletasks()
+x = (window.winfo_screenwidth() - window.winfo_width()) // 2
+y = 10
+window.geometry(f"+{x}+{y}")
 
 window.mainloop()

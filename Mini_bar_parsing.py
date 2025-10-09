@@ -43,7 +43,7 @@ def show_image():
                 image_window_visible = True
 
             tab = ttk.Frame(notebook)
-            notebook.add(tab, text=f"Собака {notebook.index('end') + 1}")
+            notebook.add(tab, text=f"Изображение {notebook.index('end') + 1}")
             label = ttk.Label(tab, image=img)
             label.image = img
             label.pack(padx=10, pady=10)
@@ -88,7 +88,7 @@ def toggle_image_window():
 
 # --- Главное окно (компактная панель) ---
 window = Tk()
-window.title("Панель управления собаками")
+window.title("Панель управления парсинга")
 window.resizable(True, False)  # Запрещаем изменение высоты окна
 
 # Основной фрейм для всех элементов в одну строку
@@ -100,7 +100,7 @@ status_indicator = ttk.Label(main_frame, width=3, background='lightgray', relief
 status_indicator.pack(side='left', padx=5)
 
 # Кнопка загрузки изображения
-button_load = ttk.Button(main_frame, text="Загрузить собаку", command=show_image)
+button_load = ttk.Button(main_frame, text="Загрузить данные", command=show_image)
 button_load.pack(side='left', padx=5)
 
 # Кнопка очистки вкладок
